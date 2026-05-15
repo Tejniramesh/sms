@@ -6,7 +6,10 @@ def show_send_sms():
     st.title("📩 Send SMS")
 
     phone = st.text_input("Phone Number")
-    message = st.text_area("Message")
+
+    message = st.text_area(
+        "Type your message"
+    )
 
     if st.button("Send Message"):
 
@@ -20,7 +23,14 @@ def show_send_sms():
                     message
                 )
 
-                st.success("SMS Sent Successfully")
+                st.success(
+                    "SMS Sent Successfully"
+                )
 
         else:
-            st.error("Please fill all fields")
+            st.error(
+                "Please fill all fields"
+            )
+
+    st.markdown("---")
+    st.caption("SmartSMS • Developed by Tejni")

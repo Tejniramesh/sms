@@ -7,7 +7,11 @@ def show_history():
     st.title("🕒 Message History")
 
     messages = list(
-        messages_collection.find({}, {"_id": 0})
+
+        messages_collection.find(
+            {"user": st.session_state.user},
+            {"_id": 0}
+        )
     )
 
     if messages:
@@ -20,4 +24,7 @@ def show_history():
         )
 
     else:
-        st.info("No messages found")
+        st.warning("No messages found")
+
+    st.markdown("---")
+    st.caption("SmartSMS • Developed by Tejni")
