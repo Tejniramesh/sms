@@ -6,6 +6,7 @@ import os
 load_dotenv()
 
 try:
+
     MONGO_URI = os.getenv("MONGO_URI")
 
     if not MONGO_URI:
@@ -18,8 +19,11 @@ try:
 
     client = MongoClient(
         MONGO_URI,
-        serverSelectionTimeoutMS=5000
+        serverSelectionTimeoutMS=3000
     )
+
+    # Test connection immediately
+    client.server_info()
 
     db = client[DB_NAME]
 
@@ -29,4 +33,4 @@ try:
 
 except Exception as e:
 
-    st.error(f"Database Connection Error: {e}")
+    st.error(f"MongoDB Error: {e}")
