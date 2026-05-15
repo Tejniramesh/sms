@@ -1,0 +1,7 @@
+streamlit
+streamlit-option-menu
+pymongo
+python-dotenv
+pandas
+matplotlib
+bcrypt
